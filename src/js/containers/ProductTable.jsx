@@ -1,6 +1,9 @@
 import React from "react";
-import ProductCategoryRow from "./ProductCategoryRow";
-import ProductRow from "./ProductRow";
+import ProductCategoryRow from './../components/ProductCategoryRow';
+import ProductRow from './../components/ProductRow';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+
 class ProductTable extends React.Component {
   render() {
     const inStockOnly = this.props.inStockOnly;
@@ -38,4 +41,12 @@ class ProductTable extends React.Component {
     );
   }
 }
-export default ProductTable;
+
+ProductTable.propTypes = {
+  data: PropTypes.array.isRequired
+}
+
+export default connect(state => ({
+  inStockOnly: state.isStocked,
+  filterText: state.filterText
+}))(ProductTable);

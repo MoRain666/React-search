@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import FilterableProductTable from "./FilterableProductTable";
-import { data } from "./data";
-class App extends Component {
+import React from "react";
+import { data } from './constants/data';
+import FilterableProductTable from './containers/FilterableProductTable';
+class App extends React.Component {
   render() {
     return (
       <React.Fragment>
